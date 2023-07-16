@@ -19,6 +19,8 @@ import { PopupComponent } from './component/popup/popup.component';
 import { AssociateComponent } from './component/associate/associate.component';
 import { UserdetailComponent } from './component/userdetail/userdetail.component';
 import { PopuptypeComponent } from './popuptype/popuptype.component';
+import { TraiterComponent } from './traiter/traiter.component';
+import { PopupComponent1 } from './component/popuReponse/popup.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,11 @@ import { PopuptypeComponent } from './popuptype/popuptype.component';
     TableComponent,
     FormdesignComponent,
     PopupComponent,
+    PopupComponent1,
     AssociateComponent,
     UserdetailComponent,
     PopuptypeComponent,
+    TraiterComponent,
   ],
   imports: [
     BrowserModule,

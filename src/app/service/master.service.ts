@@ -22,10 +22,13 @@ export class MasterService {
   }
 
   GetCustomer():Observable<Customer[]>{
-    return this.http.get<Customer[]>("http://127.0.0.1:5000/admin/allreclamation");
+    return this.http.get<Customer[]>("http://127.0.0.1:5000/admin/encours");
   }
    GetCustomer0():Observable<Customer[]>{
     return this.http.get<Customer[]>("http://127.0.0.1:5000/admin/deletedDocuments");
+  }
+  GetTraiter():Observable<Customer[]>{
+    return this.http.get<Customer[]>("http://127.0.0.1:5000/admin/traiter");
   }
 
   GetAutre():Observable<Customer[]>{
@@ -40,10 +43,15 @@ export class MasterService {
     const url = `http://127.0.0.1:5000/type/type/${id}`;
     return this.http.patch(url, updatedData);
   }
-  closed(id: string, updatedData: any): Observable<any> {
-    const url = `http://127.0.0.1:5000/admin/updatee/${id}`;
-    return this.http.patch(url, updatedData);
+  Archiff(id: string, data: any): Observable<any> {
+    const url = `http://127.0.0.1:5000/reponse/reclamation/${id}`;
+    return this.http.post(url, data);
   }
+
+
+
+  
+  //////////
   Archif(id: string): Observable<any> {
     const url = `http://127.0.0.1:5000/admin/moveData/${id}`;
     return this.http.delete(url);
@@ -51,6 +59,7 @@ export class MasterService {
   GetType():Observable<Customer[]>{
     return this.http.get<Customer[]>("http://127.0.0.1:5000/type/type");
   }
+  ////////////
   delete(id: string) {
     return this.http.delete(`http://127.0.0.1:5000/type/type/${id}`);
   }
@@ -60,8 +69,15 @@ export class MasterService {
   }
   Savecustomer0(data:any){
     console.log(data)
-    return this.http.post("http://localhost:5000/admin/reclamer",data);
+    return this.http.patch("http://localhost:5000/admin/update",data);
   }
+ 
+  Close(id: string): Observable<any> {
+    const url = `http://127.0.0.1:5000/admin/updatee/${id}`;
+    return this.http.patch(url, null);
+  }
+
+  
 
   GetCustomerbycode(id: string){
     return this.http.get(`http://127.0.0.1:5000/admin/reclamation/${id}`);

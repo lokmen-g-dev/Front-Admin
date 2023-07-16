@@ -9,8 +9,9 @@ import { TableComponent } from './component/table/table.component';
 import { FormdesignComponent } from './component/formdesign/formdesign.component';
 import { AssociateComponent } from './component/associate/associate.component';
 
+
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:'traiter',component:HomeComponent},
   {path:'autocomplete',component:AutocompleteComponent},
   {path:'input',component:InputComponent},
   {path:'card',component:CardComponent},

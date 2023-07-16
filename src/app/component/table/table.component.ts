@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Customer } from 'src/app/Model/Customer';
 import { MasterService } from 'src/app/service/master.service';
 import { PopupComponent } from '../popup/popup.component';
+import { PopupComponent1 } from '../popuReponse/popup.component';
 import { UserdetailComponent } from '../userdetail/userdetail.component';
 
 @Component({
@@ -49,6 +50,31 @@ export class TableComponent {
       }
     );
   }
+
+
+
+  /// closed tecte
+
+
+
+  Repondcustomer( code: any) {
+    this.Openpopup( code, 'Reponce ',PopupComponent1);
+  }
+  
+  closedCustomer(id: string) {
+    this.service.Close(id).subscribe(
+      response => {
+        console.log('Delete operation successful');
+        // Update the customer list after deletion
+        this.loadcustomer();
+        // Handle any other success logic here
+      },
+      error => {
+        console.log('Delete operation failed');
+        // Handle any error logic here
+      }
+    );
+  }
  
 
 
@@ -57,8 +83,17 @@ export class TableComponent {
     this.dataSource.filter = value;
   }
 
+
+  Close(data: Event) {
+    const value = (data.target as HTMLInputElement).value;
+    this.dataSource.filter = value;
+  }
+
   editcustomer(code: any) {
     this.Openpopup(code, 'Edit',PopupComponent);
+  }
+  Reponse(code: any) {
+    this.Openpopup(code, 'Réponse',PopupComponent1);
   }
 
   detailcustomer(code: any) {
